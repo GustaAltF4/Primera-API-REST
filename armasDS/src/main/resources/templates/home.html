@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+</head>
+<body>
+<!--nav-->
+<ul class="nav justify-content-end bg-dark">
+    <li class="nav-item me-auto">
+        <a class="nav-link"  id="logo" href="/"><strong>SoulsArmoryAPI</strong></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link " aria-current="page" href="/admin" id="subirArma">⚔Upload Weapons</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link " href="/swagger-ui.html">📑Doc API</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link " href="mailto:acostag.123456@gmail.com">✉Contacto</a>
+    </li>
+
+</ul>
+<!--nav-->
+<div class="video-container">
+    <video autoplay loop muted>
+        <source th:src="@{/gif/hoguerita.webm}" type="video/webm">
+        Tu navegador no soporta este formato de video
+    </video>
+    <div class="mensaje-container">
+        <h1><strong>SoulsArmoryAPI</strong></h1>
+        <h5>Es una API REST que en la que puedes obtener información de armas de este hermoso jueguito que tanta
+            bronca nos puede dar a veces 🤬.</h5>
+        <p>También puedes agregar, editar y borrar (no las borres porfa) nuevas armas o escudos 😘.</p>
+    </div>
+</div>
+<div class="container">
+    <p class="alert alert-dark mt-3 ">
+        ¡Hola!<br>
+
+        Hice esta API, creada con Spring Boot, que proporciona información detallada
+        sobre las armas del juego Dark Souls 1. No tiene fines de lucro ni comerciales,
+        simplemente es un proyecto personal para practicar y mejorar mis
+        conocimientos en el desarrollo de API REST.<br>
+
+        Toda la información contenida en esta API ha sido obtenida de la
+        <a class="link-custom" href="https://darksouls.fandom.com/es/wiki/Wiki_Dark_Souls" target="_blank">Wiki de Dark Souls</a>
+        (tremenda página). No tengo intención de apropiarme de su contenido,
+        sino que lo utilizo con fines educativos y como parte de un ejercicio de desarrollo.</p>
+
+    <p class="alert alert-primary mt-3 ">
+        ¡Información!
+        <br>
+        Normalmente, todos los nombres empiezan con Mayúscula la primera letra. Puedes escribirme para cualquier consejo o sugerencia.
+        <br>
+        Lo aclaro más abajo, pero bueno, no está de más repetirlo. Si quieres usar algún endpoint
+        de los que obtienen armas a partir del nombre, cuando este contenga espacios, como por ejemplo
+        "Espada recta de Astora", puedes buscarla poniendo "Espada_recta_de_Astora" o "Espada%20recta%20de%20Astora".
+        <br>
+
+        Arriba hay un apartado para <a class="link-custom" href="#subirArma">subir más armas</a> si quieres, o también puedes hacerlo mediante solicitudes HTTP,
+        aunque es más engorroso.
+    </p>
+
+    <hr style="background-color: white; height: 3px ">
+    <!---------------------------------Primera tabla--------------------------------->
+    <h1 class="mb-3 text-white">Algunos Endpoints</h1>
+    <table class="table table-striped table-dark table-hover align-middle ">
+        <thead>
+            <tr>
+                <th>Url</th>
+                <th>Descripción</th>
+                <th class="text-center">Ejemplo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>/api/weaponsDS</td>
+                <td>Retorna un arma aleatoria</td>
+                <td class="text-center">
+                    <a class="aBtn" href="/api/weaponsDS">Random<br>Weapon</a>
+                </td>
+            </tr>
+            <tr>
+                <td>/api/weaponsDS/imagen</td>
+                <td>Retorna la imagen de un arma aleatoria</td>
+                <td class="text-center">
+                    <a class="aBtn" href="/api/weaponsDS/imagen">Random<br>WeaponImg</a>
+                </td>
+            </tr>
+            <tr>
+                <td>/api/weaponsDS/id/3/summary</td>
+                <td>Retorna un arma específica por su id pero con su JSON más breve</td>
+                <td class="text-center">
+                    <a class="aBtn" href="/api/weaponsDS/id/3/summary">Weapon but<br>Summarized</a>
+                </td>
+            </tr>
+            <tr>
+                <td>/api/weaponsDS/id/3/summary</td>
+                <td>Retorna un arma específica por su nombre pero con su JSON más breve
+                    <p class="text-muted " style="font-size: 0.8em">
+                        <strong>*si es que lo conoces*</strong><br>
+                        (si el nombre lleva espacios puedes usar "nombre_ejemplo" o "nombre%20ejemplo")
+                    </p>
+                </td>
+                <td class="text-center">
+                    <a class="aBtn" href="/api/weaponsDS/nombre/Cimitarra/summary">Weapon but<br>Summarized</a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+    <!---------------------------------Segunda tabla--------------------------------->
+    <h1 class="mb-3">Otros más Específicos</h1>
+    <table class="table table-striped table-dark table-hover align-middle">
+        <thead>
+            <tr>
+                <th>Url</th>
+                <th>Descripción</th>
+                <th class="text-center">Ejemplo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>/api/weaponsDS/all</td>
+                <td>Retorna todas las armas</td>
+                <td class="text-center">
+                    <a class="aBtn" href="/api/weaponsDS/all">All<br>Weapons</a>
+                </td>
+            </tr>
+            <tr>
+                <td>/api/weaponsDS/id/3</td>
+                <td>Retorna un arma específica por su id
+                    <p class="text-muted " style="font-size: 0.8em">
+                        <strong>*con todos los datos completos*</strong><br>
+                    </p>
+                </td>
+                <td class="text-center">
+                    <a class="aBtn" href="/api/weaponsDS/id/3">Weapon<br>by ID</a>
+                </td>
+            </tr>
+            <tr>
+                <td>/api/weaponsDS/nombre/Cimitarra</td>
+                <td>
+                    Retorna un arma específica por su nombre
+                    <p class="text-muted " style="font-size: 0.8em">
+                        <strong>*con todos los datos completos*</strong><br>
+                        (si el nombre lleva espacios puedes usar "nombre_ejemplo" o "nombre%20ejemplo")
+                    </p>
+                </td>
+                <td class="text-center">
+                    <a class="aBtn" href="/api/weaponsDS/nombre/Cimitarra">Weapon<br>by Name</a>
+                </td>
+            </tr>
+            <tr>
+                <td>/api/weaponsDS/imagen/id/3</td>
+                <td>Retorna la imagen de un arma específica por su id</td>
+                <td class="text-center">
+                    <a class="aBtn" href="/api/weaponsDS/imagen/id/3">WeaponImg<br>by ID </a>
+                </td>
+            </tr>
+            <tr>
+                <td>/api/weaponsDS/imagen/nombre/Cimitarra</td>
+                <td>Retorna la imagen de un arma específica por su nombre
+                    <p class="text-muted " style="font-size: 0.8em">
+                        (si el nombre llevase espacios sigue las reglas anteriores)
+                    </p>
+                </td>
+                <td class="text-center">
+                    <a class="aBtn" href="/api/weaponsDS/imagen/nombre/Cimitarra">WeaponImg<br>by Name </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+</div>
+<footer class="footer" style="background-color: rgba(0, 0, 0, 0.5); color: white;">
+    <div class="d-flex justify-content-between p-3">
+        <a class="link-custom" href="#logo">Ir Arriba</a>
+        <div class="text-end">
+            Besos<i class="fas fa-heart" style="color: red;" aria-label="corazón"></i> Hecho por:
+            <a class="link-custom" href="https://github.com/GustaAltF4" target="_blank">Gustavo Acosta</a>
+            <br>
+            &copy; <span id="año"></span>
+        </div>
+    </div>
+</footer>
+<script>
+    document.getElementById("año").textContent = new Date().getFullYear();
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+</body>
+</html>

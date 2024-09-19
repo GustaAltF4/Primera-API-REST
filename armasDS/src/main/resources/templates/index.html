@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Administración Armas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+<!--nav-->
+<ul class="nav justify-content-end bg-dark">
+    <li class="nav-item me-auto">
+        <a class="nav-link" id="logo" href="/"><strong>SoulsArmoryAPI</strong></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link " aria-current="page" href="/">🏚Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link " href="/swagger-ui.html">📑Doc API</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link " href="mailto:acostag.123456@gmail.com">✉Contacto</a>
+    </li>
+
+</ul>
+
+<div class="container mt-5 mb-5">
+
+    <h1 class="text-white">Administración</h1>
+    <div>
+        <a href="/admin/arma/agregar" class="aBtn">Agregar Arma</a>
+    </div>
+    <br>
+    <!--cards-->
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col" th:each="arma : ${armas}" th:object="${arma}">
+            <div class="card text-center">
+                <a th:href="@{/assets/{filename}(filename=*{rutaImagen})}" style="padding: 3vh;">
+                    <img th:src="@{/assets/{filename}(filename=*{rutaImagen})}" alt="img" style="width: 15vh">
+                </a>
+
+                <div class="card-body">
+                    <h3 class="card-title" th:text="*{titulo}"
+                        style="font-weight: bold; text-transform: uppercase;"></h3>
+                    <p class="card-text"><strong>Tipo de Arma:</strong> <span th:text="*{categoria.titulo}"></span></p>
+                    <p class="card-text"><strong>Peso:</strong> <span th:text="*{peso}"></span></p>
+                    <p class="card-text"><strong>Durabilidad:</strong> <span th:text="*{durabilidad}"></span></p>
+
+                    <a class="rotarElemento" data-bs-toggle="collapse" th:attr="data-bs-target='#detalles_' + *{id}">
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <!-- Sección colapsable con los detalles adicionales -->
+                    <div th:id="'detalles_' + *{id}" class="collapse mt-3 collapse-custom">
+                        <p class="card-text"><strong>Obtención:</strong> <span th:text="*{obtencion}"></span></p>
+
+                        <div class="form-control">
+                            <strong>Estadísticas</strong><br>
+                            <img th:src="@{/icons/Ataque_fisico.webp}" data-bs-toggle="tooltip" title="Ataque Físico"
+                                 class="img-icon">
+                            <span th:text="*{aFisico}" data-bs-toggle="tooltip" title="Ataque Físico"></span>
+
+                            <img th:src="@{/icons/Defensa_fisico.webp}" data-bs-toggle="tooltip" title="Defensa Física"
+                                 class="img-icon">
+                            <span th:text="*{dFisico}" data-bs-toggle="tooltip" title="Defensa Física"></span><br>
+
+                            <img th:src="@{/icons/Ataque_magico.webp}" data-bs-toggle="tooltip" title="Ataque Mágico"
+                                 class="img-icon">
+                            <span th:text="*{aMagico}" data-bs-toggle="tooltip" title="Ataque Mágico"></span>
+
+                            <img th:src="@{/icons/Defensa_magico.webp}" data-bs-toggle="tooltip" title="Defensa Mágica"
+                                 class="img-icon">
+                            <span th:text="*{dMagico}" data-bs-toggle="tooltip" title="Defensa Mágica"></span><br>
+
+                            <img th:src="@{/icons/Ataque_fuego.webp}" data-bs-toggle="tooltip" title="Ataque Fuego"
+                                 class="img-icon">
+                            <span th:text="*{aFuego}" data-bs-toggle="tooltip" title="Ataque Fuego"></span>
+
+                            <img th:src="@{/icons/Defensa_fuego.webp}" data-bs-toggle="tooltip" title="Defensa Fuego"
+                                 class="img-icon">
+                            <span th:text="*{dFuego}" data-bs-toggle="tooltip" title="Defensa Fuego"></span><br>
+
+                            <img th:src="@{/icons/Ataque_electricidad.webp}" data-bs-toggle="tooltip"
+                                 title="Ataque Electricidad" class="img-icon">
+                            <span th:text="*{aElectricidad}" data-bs-toggle="tooltip"
+                                  title="Ataque Electricidad"></span>
+
+                            <img th:src="@{/icons/Defensa_electricidad.webp}" data-bs-toggle="tooltip"
+                                 title="Defensa Electricidad" class="img-icon">
+                            <span th:text="*{dElectricidad}" data-bs-toggle="tooltip"
+                                  title="Defensa Electricidad"></span><br>
+
+                            <img th:src="@{/icons/Critico.webp}" data-bs-toggle="tooltip" title="Critico"
+                                 class="img-icon">
+                            <span th:text="*{critico}" data-bs-toggle="tooltip" title="Critico"></span>
+
+                            <img th:src="@{/icons/Estabilidad.webp}" data-bs-toggle="tooltip" title="Estabilidad"
+                                 class="img-icon">
+                            <span th:text="*{estabilidad}" data-bs-toggle="tooltip" title="Estabilidad"></span>
+                        </div>
+                        <div class="form-control">
+                            <strong>Atributos Necesarios</strong><br>
+                            <img th:src="@{/icons/Fuerza.webp}" data-bs-toggle="tooltip" title="Fuerza"
+                                 class="img-icon">
+                            <span th:text="*{nFuerza}" data-bs-toggle="tooltip" title="Fuerza"></span>
+
+                            <img th:src="@{/icons/Destreza.webp}" data-bs-toggle="tooltip" title="Destreza"
+                                 class="img-icon">
+                            <span th:text="*{nDestreza}" data-bs-toggle="tooltip" title="Destreza"></span>
+
+                            <img th:src="@{/icons/Inteligencia.webp}" data-bs-toggle="tooltip" title="Inteligencia"
+                                 class="img-icon">
+                            <span th:text="*{nInteligencia}" data-bs-toggle="tooltip" title="Inteligencia"></span>
+
+                            <img th:src="@{/icons/Fe.webp}" data-bs-toggle="tooltip" title="Fé" class="img-icon">
+                            <span th:text="*{nFe}" data-bs-toggle="tooltip" title="Fé"></span>
+                        </div>
+                        <div class="form-control">
+                            <strong>Escalados</strong><br>
+                            <img th:src="@{/icons/Fuerza.webp}" data-bs-toggle="tooltip" title="Fuerza"
+                                 class="img-icon">
+                            <span th:text="*{escaladoFuerza}" data-bs-toggle="tooltip" title="Fuerza"></span>
+
+                            <img th:src="@{/icons/Destreza.webp}" data-bs-toggle="tooltip" title="Destreza"
+                                 class="img-icon">
+                            <span th:text="*{escaladoDestreza}" data-bs-toggle="tooltip" title="Destreza"></span><br>
+
+                            <img th:src="@{/icons/Inteligencia.webp}" data-bs-toggle="tooltip" title="Inteligencia"
+                                 class="img-icon">
+                            <span th:text="*{escaladoInteligencia}" data-bs-toggle="tooltip"
+                                  title="Inteligencia"></span>
+
+                            <img th:src="@{/icons/Fe.webp}" data-bs-toggle="tooltip" title="Fé" class="img-icon">
+                            <span th:text="*{escaladoFe}" data-bs-toggle="tooltip" title="Fé"></span>
+                        </div>
+                        <div class="form-control">
+                            <strong>Efectos Especiales</strong><br>
+                            <img th:src="@{/icons/Hemorragia.webp}" data-bs-toggle="tooltip" title="Hemorragia"
+                                 class="img-icon">
+                            <span th:text="*{hemorragia}" data-bs-toggle="tooltip" title="Hemorragia"></span>
+
+                            <img th:src="@{/icons/Veneno.webp}" data-bs-toggle="tooltip" title="Veneno"
+                                 class="img-icon">
+                            <span th:text="*{veneno}" data-bs-toggle="tooltip" title="Veneno"></span>
+
+                            <img th:src="@{/icons/Toxic.webp}" data-bs-toggle="tooltip" title="Tóxico" class="img-icon">
+                            <span th:text="*{toxico}" data-bs-toggle="tooltip" title="Tóxico"></span><br>
+
+                            <img th:src="@{/icons/Divino.webp}" data-bs-toggle="tooltip" title="Divino"
+                                 class="img-icon">
+                            <span th:text="*{divino}" data-bs-toggle="tooltip" title="Divino"></span>
+
+                            <img th:src="@{/icons/Oculto.webp}" data-bs-toggle="tooltip" title="Oculto"
+                                 class="img-icon">
+                            <span th:text="*{oculto}" data-bs-toggle="tooltip" title="Oculto"></span>
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a th:href="@{/admin/arma/{id}/editar(id=*{id})}" class="btn btn-secondary">Editar</a>
+                    <a href="javascript:void(0)" th:onclick="'eliminarArma(' + *{id} +')'" class="btn btn-danger">Eliminar</a>
+                    <form th:id="'eliminarArmaForm' + *{id}" th:action="@{/admin/arma/{id}/borrar(id=*{id})}"
+                          method="post"></form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- Barra de paginación -->
+    <nav aria-label="Page navigation" class="mt-5">
+        <ul class="pagination">
+            <!-- Botón de anterior -->
+            <li th:if="${armas.hasPrevious()}" class="page-item">
+                <a th:href="@{/admin(page=${armas.number - 1})}" class="page-link">Anterior</a>
+            </li>
+
+            <!-- Números de página -->
+            <li th:each="i : ${#numbers.sequence(0, armas.totalPages - 1)}"
+                th:classappend="${armas.number == i} ? 'active' : ''" class="page-item">
+                <a th:href="@{/admin(page=${i})}" class="page-link" th:text="${i + 1}"></a>
+            </li>
+
+            <!-- Botón de siguiente -->
+            <li th:if="${armas.hasNext()}" class="page-item">
+                <a th:href="@{/admin(page=${armas.number + 1})}" class="page-link">Siguiente</a>
+            </li>
+        </ul>
+    </nav>
+
+
+</div>
+<footer class="footer" style="background-color: rgba(0, 0, 0, 0.3); color: white;">
+    <div class="d-flex justify-content-between p-3">
+        <a class="link-custom" href="#logo">Ir Arriba</a>
+        <div class="text-end">
+            Besos<i class="fas fa-heart" style="color: red;" aria-label="corazón"></i> Hecho por:
+            <a class="link-custom" href="https://github.com/GustaAltF4" target="_blank">Gustavo Acosta</a>
+            <br>
+            &copy; <span id="año"></span>
+        </div>
+    </div>
+</footer>
+<script>
+    document.getElementById("año").textContent = new Date().getFullYear();
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script th:src="@{/js/colapso.js}"></script>
+</body>
+</html>

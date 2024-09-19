@@ -1,0 +1,72 @@
+body{
+  background: linear-gradient(to bottom, #000000, #f2f2f2);
+  height: 100%; 
+}
+.nav-link {
+  color: grey;
+  transition: color 0.5s ease;
+}
+.nav-link:hover {
+  color: white;
+}
+.video-container {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.mensaje-container{
+  font-size: 2vh;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  border-radius: 3vh;
+  padding: 1vh 2vw; /* Ajustar el padding con unidades flexibles */
+  border-radius: 2vh;
+  max-width: 90%; /* Limitar el ancho máximo */
+  box-sizing: border-box;
+}
+.link-custom{
+  text-decoration: none;
+  font-weight: bold;
+  color: white ;
+  transition: color 0.7s ease;
+  text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000; 
+}
+.link-custom:hover{
+  color: black;
+}
+.aBtn{
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 1s ease, color 1s ease;
+}
+.aBtn:hover{
+  background-color: black;
+  color: white;
+}

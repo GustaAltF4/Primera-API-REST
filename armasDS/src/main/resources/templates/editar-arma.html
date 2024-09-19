@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Arma</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/form.css}">
+</head>
+<body>
+
+<div class="container mt-5 mb-5 text-center">
+
+    <h1 style="font-weight: bold">Editar Arma</h1>
+    <a href="/admin" class="link-custom">Volver</a>
+    <form action="" method="post" th:object="${arma}" enctype="multipart/form-data" class="form d-flex flex-column text-center align-items-center mt-3">
+
+        <div class="col-md-6 mb-3">
+            <div class="input-group mb-3">
+                <span for="titulo" class="input-group-text">Nombre Arma: </span>
+                <input type="text" name="titulo" id="titulo" th:field="*{titulo}" placeholder="Escribe el titulo" class="form-control" required>
+                <div th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}" ></div>
+            </div>
+            <div class="input-group">
+                <span for="obtencion" class="input-group-text">Obtención: </span>
+                <textarea name="obtencion" id="obtencion" th:field="*{obtencion}" placeholder="Escribe obtención" class="form-control" required></textarea>
+                <div th:if="${#fields.hasErrors('obtencion')}" th:errors="*{obtencion}" ></div>
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+            <label for="categoria" class="form-label">Tipo de Arma: </label>
+            <select id="categoria" th:field="*{categoria}"  class="form-select" >
+                <option value="" disabled selected>Seleccione una categoría</option>
+                <option th:each="categoria: ${category}"
+                        th:value="${categoria.name()}"
+                        th:text="${categoria.titulo}" class="form-select"></option>
+            </select>
+            <div th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></div>
+        </div>
+
+        <div class="row input-group d-flex justify-content-center">
+            <div class="col-md-3">
+                <label for="peso" class="form-label">Peso: </label>
+                <input type="number" name="peso" id="peso" th:field="*{peso}"  class="form-control" step="0.1" required>
+                <div th:if="${#fields.hasErrors('peso')}" th:errors="*{peso}" ></div>
+            </div>
+            <div class="col-md-3">
+                <label for="durabilidad" class="form-label">Durabilidad: </label>
+                <input type="number" name="durabilidad" id="durabilidad" th:field="*{durabilidad}"  class="form-control" required>
+                <div th:if="${#fields.hasErrors('durabilidad')}" th:errors="*{durabilidad}" ></div>
+            </div>
+        </div>
+        <hr>
+
+        <div class="row input-group d-flex justify-content-center">
+
+            <strong class="mb-2" style="color: grey;">Estadísticas</strong>
+
+            <div class="col-md-2 ">
+                <span for="aFisico" class="form-label">Ataque<br>Físico: </span>
+                <input type="number" name="aFisico" id="aFisico" th:field="*{aFisico}"  class="form-control" required>
+                <div th:if="${#fields.hasErrors('aFisico')}" th:errors="*{aFisico}" ></div>
+            </div>
+            <div class="col-md-2">
+                <label for="dFisico" class="form-label">Defensa<br>Física: </label>
+                <input type="number" name="dFisico" id="dFisico" th:field="*{dFisico}"  class="form-control" required>
+                <div th:if="${#fields.hasErrors('dFisico')}" th:errors="*{dFisico}" ></div>
+            </div>
+            <div class="col-md-2">
+                <label for="aMagico" class="form-label">Ataque<br>Mágico: </label>
+                <input type="number" name="aMagico" id="aMagico" th:field="*{aMagico}" class="form-control" required>
+                <div th:if="${#fields.hasErrors('aMagico')}" th:errors="*{aMagico}" ></div>
+            </div>
+            <div class="col-md-2">
+                <label for="dMagico" class="form-label">Defensa<br>Mágica: </label>
+                <input type="number" name="dMagico" id="dMagico" th:field="*{dMagico}"  class="form-control" required>
+                <div th:if="${#fields.hasErrors('dMagico')}" th:errors="*{dMagico}" ></div>
+            </div>
+            <div class="col-md-2">
+                <label for="aFuego" class="form-label">Ataque<br>Fuego: </label>
+                <input type="number" name="aFuego" id="aFuego" th:field="*{aFuego}"  class="form-control" required>
+                <div th:if="${#fields.hasErrors('aFuego')}" th:errors="*{aFuego}" ></div>
+            </div>
+            <div class="col-md-2">
+                <label for="dFuego" class="form-label">Defensa<br>Fuego: </label>
+                <input type="number" name="dFuego" id="dFuego" th:field="*{dFuego}"  class="form-control" required>
+                <div th:if="${#fields.hasErrors('dFuego')}" th:errors="*{dFuego}" ></div>
+            </div>
+            <div class="col-md-2">
+                <label for="aElectricidad" class="form-label">Ataque<br>Electricidad: </label>
+                <input type="number" name="aElectricidad" id="aElectricidad" th:field="*{aFuego}"  class="form-control" required>
+                <div th:if="${#fields.hasErrors('aElectricidad')}" th:errors="*{aElectricidad}" ></div>
+            </div>
+            <div class="col-md-2">
+                <label for="dElectricidad" class="form-label">Defensa<br>Electricidad: </label>
+                <input type="number" name="dElectricidad" id="dElectricidad" th:field="*{dElectricidad}"  class="form-control" required>
+                <div th:if="${#fields.hasErrors('dElectricidad')}" th:errors="*{dElectricidad}" ></div>
+            </div>
+            <div class="col-md-2">
+                <label for="critico" class="form-label mb-3 mt-3">Critico: </label>
+                <input type="number" name="critico" id="critico" th:field="*{critico}"  class="form-control" required>
+                <div th:if="${#fields.hasErrors('critico')}" th:errors="*{critico}" ></div>
+            </div>
+            <div class="col-md-2">
+                <label for="estabilidad" class="form-label mb-3 mt-3">Estabilidad: </label>
+                <input type="number" name="estabilidad" id="estabilidad" th:field="*{estabilidad}"  class="form-control" required>
+                <div th:if="${#fields.hasErrors('estabilidad')}" th:errors="*{estabilidad}" ></div>
+            </div>
+        </div>
+        <hr>
+
+        <div class="row input-group d-flex justify-content-center">
+            <strong class="mb-2" style="color: grey;">Atributos Necesarios</strong>
+
+            <div class="col-md-2">
+                <label for="nFuerza" class="form-label">Fuerza<br>Necesaria: </label>
+                <input type="number" name="nFuerza" id="nFuerza" th:field="*{nFuerza}" class="form-control" required>
+                <div th:if="${#fields.hasErrors('nFuerza')}" th:errors="*{nFuerza}" ></div>
+            </div>
+            <div class="col-md-2">
+                <label for="nDestreza" class="form-label">Destreza<br>Necesaria: </label>
+                <input type="number" name="nDestreza" id="nDestreza" th:field="*{nDestreza}"  class="form-control" required>
+                <div th:if="${#fields.hasErrors('nDestreza')}" th:errors="*{nDestreza}" ></div>
+            </div>
+            <div class="col-md-2">
+                <label for="nInteligencia" class="form-label">Inteligencia<br>Necesaria: </label>
+                <input type="number" name="nInteligencia" id="nInteligencia" th:field="*{nInteligencia}"  class="form-control" required>
+                <div th:if="${#fields.hasErrors('nInteligencia')}" th:errors="*{nInteligencia}" ></div>
+            </div>
+            <div class="col-md-2">
+                <label for="nFe" class="form-label ">Fe<br>Necesaria: </label>
+                <input type="number" name="nFe" id="nFe" th:field="*{nFe}" class="form-control" required>
+                <div th:if="${#fields.hasErrors('nFe')}" th:errors="*{nFe}" ></div>
+            </div>
+        </div>
+        <hr>
+
+        <div class="row input-group d-flex justify-content-center">
+
+            <strong class="mb-2" style="color: grey;">Escalados</strong>
+
+            <div class="col-md-2">
+                <label for="escaladoFuerza" class="form-label">Escalado<br>Fuerza: </label>
+                <select id="escaladoFuerza" th:field="*{escaladoFuerza}"  class="form-select" >
+                    <option value="" disabled selected>Seleccione</option>
+                    <option th:each="escalado: ${escalados}"
+                            th:value="${escalado.name()}"
+                            th:text="${escalado.name()}" class="form-select"></option>
+                </select>
+                <div th:if="${#fields.hasErrors('escaladoFuerza')}" th:errors="*{escaladoFuerza}"></div>
+            </div>
+            <div class="col-md-2">
+                <label for="escaladoDestreza" class="form-label">Escalado<br>Destreza: </label>
+                <select id="escaladoDestreza" th:field="*{escaladoDestreza}"  class="form-select" >
+                    <option value="" disabled selected>Seleccione</option>
+                    <option th:each="escalado : ${escalados}"
+                            th:value="${escalado.name()}"
+                            th:text="${escalado.name()}" class="form-select"></option>
+                </select>
+                <div th:if="${#fields.hasErrors('escaladoDestreza')}" th:errors="*{escaladoDestreza}"></div>
+            </div>
+            <div class="col-md-2">
+                <label for="escaladoInteligencia" class="form-label">Escalado<br>Inteligencia: </label>
+                <select id="escaladoInteligencia" th:field="*{escaladoInteligencia}"  class="form-select" >
+                    <option value="" disabled selected>Seleccione</option>
+                    <option th:each="escalado: ${escalados}"
+                            th:value="${escalado.name()}"
+                            th:text="${escalado.name()}" class="form-select"></option>
+                </select>
+                <div th:if="${#fields.hasErrors('escaladoInteligencia')}" th:errors="*{escaladoInteligencia}"></div>
+            </div>
+            <div class="col-md-2">
+                <label for="escaladoFe" class="form-label ">Escalado<br>Fe: </label>
+                <select id="escaladoFe" th:field="*{escaladoFe}"  class="form-select" >
+                    <option value="" disabled selected>Seleccione</option>
+                    <option th:each="escalado: ${escalados}"
+                            th:value="${escalado.name()}"
+                            th:text="${escalado.name()}" class="form-select"></option>
+                </select>
+                <div th:if="${#fields.hasErrors('escaladoFe')}" th:errors="*{escaladoFe}"></div>
+            </div>
+        </div>
+        <hr>
+
+        <div class="row input-group d-flex justify-content-center">
+            <strong class="mb-2" style="color: grey;">Efectos Especiales</strong>
+            <div class="col-md-2">
+                <label for="hemorragia" class="form-label">Hemorragia: </label>
+                <input type="number" name="hemorragia" id="hemorragia" th:field="*{hemorragia}" class="form-control" required>
+                <div th:if="${#fields.hasErrors('hemorragia')}" th:errors="*{hemorragia}" ></div>
+            </div>
+            <div class="col-md-2">
+                <label for="veneno" class="form-label">Veneno: </label>
+                <input type="number" name="veneno" id="veneno" th:field="*{veneno}"  class="form-control" required>
+                <div th:if="${#fields.hasErrors('veneno')}" th:errors="*{veneno}" ></div>
+            </div>
+            <div class="col-md-2">
+                <label for="divino" class="form-label">Divino: </label>
+                <input type="number" name="divino" id="divino" th:field="*{divino}" class="form-control" required>
+                <div th:if="${#fields.hasErrors('divino')}" th:errors="*{divino}" ></div>
+            </div>
+            <div class="col-md-2">
+                <label for="oculto" class="form-label">Oculto: </label>
+                <input type="number" name="oculto" id="oculto" th:field="*{oculto}" class="form-control" required>
+                <div th:if="${#fields.hasErrors('oculto')}" th:errors="*{oculto}" ></div>
+            </div>
+            <div class="col-md-2">
+                <label for="toxico" class="form-label">Tóxico: </label>
+                <input type="number" name="toxico" id="toxico" th:field="*{toxico}" class="form-control" required>
+                <div th:if="${#fields.hasErrors('toxico')}" th:errors="*{toxico}" ></div>
+            </div>
+        </div>
+        <hr>
+
+        <div class=" col-md-6">
+            <label for="imagen" class="form-label" >Imagen: </label>
+            <input type="file" name="imagen" id="imagen" th:field="*{imagen}"  class="form-control">
+            <div th:if="${#fields.hasErrors('imagen')}" th:errors="*{imagen}"></div>
+        </div>
+
+
+        <br>
+        <div class="col-md-6 mb-3">
+            <button type="submit" class="aBtn">Guardar</button>
+        </div>
+
+    </form>
+
+</div>
+
+
+</body>
+</html>
