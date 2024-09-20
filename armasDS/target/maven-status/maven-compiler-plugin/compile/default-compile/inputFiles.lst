@@ -1,0 +1,16 @@
+C:\Users\acost\OneDrive\Desktop\Prog\API\armasDS\src\main\java\com\armasDS\ArmasDsApplication.java
+C:\Users\acost\OneDrive\Desktop\Prog\API\armasDS\src\main\java\com\armasDS\config\OpenAPIConfig.java
+C:\Users\acost\OneDrive\Desktop\Prog\API\armasDS\src\main\java\com\armasDS\controller\AdminController.java
+C:\Users\acost\OneDrive\Desktop\Prog\API\armasDS\src\main\java\com\armasDS\controller\ArmaController.java
+C:\Users\acost\OneDrive\Desktop\Prog\API\armasDS\src\main\java\com\armasDS\controller\AssetsController.java
+C:\Users\acost\OneDrive\Desktop\Prog\API\armasDS\src\main\java\com\armasDS\controller\ControllerHome.java
+C:\Users\acost\OneDrive\Desktop\Prog\API\armasDS\src\main\java\com\armasDS\entity\ArmaDs.java
+C:\Users\acost\OneDrive\Desktop\Prog\API\armasDS\src\main\java\com\armasDS\entity\ArmaDSSummaryDto.java
+C:\Users\acost\OneDrive\Desktop\Prog\API\armasDS\src\main\java\com\armasDS\entity\CategoriaDs.java
+C:\Users\acost\OneDrive\Desktop\Prog\API\armasDS\src\main\java\com\armasDS\entity\Escalado.java
+C:\Users\acost\OneDrive\Desktop\Prog\API\armasDS\src\main\java\com\armasDS\exceptions\AlmancenajeException.java
+C:\Users\acost\OneDrive\Desktop\Prog\API\armasDS\src\main\java\com\armasDS\exceptions\FileNotFoundException.java
+C:\Users\acost\OneDrive\Desktop\Prog\API\armasDS\src\main\java\com\armasDS\repository\ArmaRepository.java
+C:\Users\acost\OneDrive\Desktop\Prog\API\armasDS\src\main\java\com\armasDS\services\AlmacenajeServiceImpl.java
+C:\Users\acost\OneDrive\Desktop\Prog\API\armasDS\src\main\java\com\armasDS\services\AlmacenajeServicio.java
+C:\Users\acost\OneDrive\Desktop\Prog\API\armasDS\src\main\java\com\armasDS\services\ArmaDsService.java

@@ -1,0 +1,16 @@
+com\armasDS\entity\ArmaDSSummaryDto.class
+com\armasDS\exceptions\AlmancenajeException.class
+com\armasDS\services\ArmaDsService.class
+com\armasDS\services\AlmacenajeServicio.class
+com\armasDS\entity\ArmaDs.class
+com\armasDS\controller\AdminController.class
+com\armasDS\entity\CategoriaDs.class
+com\armasDS\config\OpenAPIConfig.class
+com\armasDS\controller\AssetsController.class
+com\armasDS\exceptions\FileNotFoundException.class
+com\armasDS\ArmasDsApplication.class
+com\armasDS\controller\ArmaController.class
+com\armasDS\controller\ControllerHome.class
+com\armasDS\entity\Escalado.class
+com\armasDS\services\AlmacenajeServiceImpl.class
+com\armasDS\repository\ArmaRepository.class
