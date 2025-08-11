@@ -1,4 +1,4 @@
-<u>**No funciona hice una nueva version**:</u>
+<u>**‼️No funciona hice una nueva version‼️**:</u>
 
 https://github.com/GustaAltF4/API-weapon-v2
 
