@@ -1,13 +1,12 @@
+**No funciona hice una nueva version:
+
+https://github.com/GustaAltF4/API-weapon-v2
 
 # Mi primera API REST
 
-Una API que hice en Spring Boot sobre las armas del Dark Souls... Funciona correctamente (según yo), pero los deploy gratuitos no ayudaron. Me falta encontrar un buen **Cloud Storage** para poder hacerla 100% funcional (Si alguien ve esto y sabe de alguno, ¡soy todo oídos! 🤔), ya que cuando se sube una imagen y el servidor se apaga porque no lo usan, la imagen deja de funcionar.
+Una API que hice en Spring Boot sobre las armas del Dark Souls... Funciona correctamente (según yo), pero los deploy gratuitos no ayudaron.
 
 **Deploy del proyecto en Render utilizando Docker** (tarda bastante en cargar hasta que inicia el server):
-
-https://souls-armory-api.onrender.com
-
-
 
 ## 🛠 Skills
 Java-Spring boot, Hibernate, Bootstrap, Html, Css, Js, etc...
